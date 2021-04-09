@@ -35,14 +35,14 @@ export default class quickAction extends React.Component {
         >
           <FaWhatsapp />
         </div>
-        <Link
+        {/* <Link
           //external
           //href=""
           noLinkClass
           className="item mess"
         >
           <FaFacebookMessenger />
-        </Link>
+        </Link> */}
       </div>
     );
   }
