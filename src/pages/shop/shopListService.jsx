@@ -29,12 +29,10 @@ export default class extends React.Component {
           .then((response) => {
             var arrServiceParent = response.data.data;
             const promises = arrServiceParent.map((item) =>
-              ShopDataService.getServiceProdID(item.ID, stockid).then(
-                (response) => {
-                  const arrServiceProd = response.data.data;
-                  item.lst = arrServiceProd;
-                }
-              )
+              ShopDataService.getServiceProdID(item.ID).then((response) => {
+                const arrServiceProd = response.data.data;
+                item.lst = arrServiceProd;
+              })
             );
             // wait for all requests to resolve
             Promise.all(promises).then(() => {
@@ -96,11 +94,7 @@ export default class extends React.Component {
     }
 
     render() {
-        const arrService = this.state.arrService;
-        const arrSearch = this.state.arrSearch;
-        const isSearch = this.state.isSearch;
-
-        console.log(arrService);
+        const { arrService, arrSearch, isSearch } = this.state;
         return (
           <Page
             name="shop-List"
