@@ -27,7 +27,6 @@ export default class extends React.Component {
   getOrderAll = () => {
     const infoUser = getUser();
     const PWD = getPassword();
-   
     if (!infoUser || !PWD) {
       this.$f7router.navigate("/login/");
       return;
